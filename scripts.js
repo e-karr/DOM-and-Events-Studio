@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
 
     const takeoffButton = document.getElementById("takeoff");
     const landButton = document.getElementById("landing");
+    const abortButton = document.getElementById("missionAbort");
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
