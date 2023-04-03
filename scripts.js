@@ -14,6 +14,8 @@ window.addEventListener('load', () => {
     const shuttleBackground = document.getElementById("shuttleBackground");
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
 
+    const rocket = document.getElementById("rocket");
+
     takeoffButton.addEventListener('click', () => {
        let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
 
