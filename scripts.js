@@ -13,36 +13,32 @@ window.addEventListener('load', () => {
        let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
 
        if (takeOffResponse) {
-        flightStatus.textContent = "Shuttle in flight."
-
-        shuttleBackground.style.backgroundColor = "blue";
-
-        spaceShuttleHeight.textContent = "10,000";
+        updateShuttle("Shuttle in flight", "blue", 10000);
        }
     });
 
 
     landButton.addEventListener('click', () => {
         alert("The shuttle is landing. Landing gear engaged.");
-        
-        flightStatus.textContent = "The shuttle has landed.";
 
-        shuttleBackground.style.backgroundColor = "green";
-
-        spaceShuttleHeight.textContent = "0";
+        updateShuttle("The shuttle has landed.", "green", 0);
     });
 
     abortButton.addEventListener('click', () => {
         let abortResponse = confirm("Confirm that you want to abort the mission.");
 
         if (abortResponse) {
-            flightStatus.textContent = "Mission aborted.";
-
-            shuttleBackground.style.backgroundColor = "green";
-
-            spaceShuttleHeight.textContent = "0";
+            updateShuttle("Mission aborted", "green", 0);
         }
     });
+
+    function updateShuttle(status, background, height) {
+        flightStatus.textContent = status;
+
+        shuttleBackground.style.backgroundColor = background;
+
+        spaceShuttleHeight.textContent = height;
+    }
 
 
 });
