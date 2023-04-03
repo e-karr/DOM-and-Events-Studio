@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
 
     const takeoffButton = document.getElementById("takeoff");
     const flightStatus = document.getElementById("flightStatus");
+    const shuttleBackground = document.getElementById("shuttleBackground");
 
     takeoffButton.addEventListener('click', () => {
        let response = confirm("Confirm that the shuttle is ready for takeoff.");
