@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
     const downButton = document.getElementById("down");
     const rightButton = document.getElementById("right");
     const leftButton = document.getElementById("left");
-    
+
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
@@ -35,6 +35,10 @@ window.addEventListener('load', () => {
         if (abortResponse) {
             updateShuttle("Mission aborted", "green", 0);
         }
+    });
+
+    rightButton.addEventListener('click', () => {
+
     });
 
     function updateShuttle(status, background, height) {
