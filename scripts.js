@@ -10,9 +10,9 @@ window.addEventListener('load', () => {
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
 
     takeoffButton.addEventListener('click', () => {
-       let response = confirm("Confirm that the shuttle is ready for takeoff.");
+       let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
 
-       if (response) {
+       if (takeOffResponse) {
         flightStatus.textContent = "Shuttle in flight."
 
         shuttleBackground.style.backgroundColor = "blue";
@@ -32,7 +32,9 @@ window.addEventListener('load', () => {
         spaceShuttleHeight.textContent = "0";
     });
 
+    abortButton.addEventListener('click', () => {
 
+    });
 
 
 });
