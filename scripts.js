@@ -23,7 +23,8 @@ window.addEventListener('load', () => {
 
     landButton.addEventListener('click', () => {
         alert("The shuttle is landing. Landing gear engaged.");
-
+        
+        flightStatus.textContent = "The shuttle has landed."
     });
 
 
