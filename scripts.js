@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
     });
 
     abortButton.addEventListener('click', () => {
-
+        let abortResponse = confirm("Confirm that you want to abort the mission.");
     });
 
 
