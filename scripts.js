@@ -21,7 +21,9 @@ window.addEventListener('load', () => {
     });
 
 
+    landButton.addEventListener('click', () => {
 
+    });
 
 
 
