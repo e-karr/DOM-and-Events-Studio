@@ -27,6 +27,8 @@ window.addEventListener('load', () => {
         flightStatus.textContent = "The shuttle has landed.";
 
         shuttleBackground.style.backgroundColor = "green";
+
+        spaceShuttleHeight.textContent = "0";
     });
 
 
