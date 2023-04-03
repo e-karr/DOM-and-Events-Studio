@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
     });
 
     rightButton.addEventListener('click', () => {
-
+        rocket.style.right
     });
 
     function updateShuttle(status, background, height) {
