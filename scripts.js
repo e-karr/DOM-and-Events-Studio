@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
        let response = confirm("Confirm that the shuttle is ready for takeoff.");
 
        if (response) {
-
+        flightStatus.textContent = "Shuttle in flight."
        }
     });
 
