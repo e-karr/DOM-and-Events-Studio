@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
 
         shuttleBackground.style.backgroundColor = "blue";
 
-
+        spaceShuttleHeight.textContent = "10,000";
        }
     });
 
