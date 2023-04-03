@@ -11,6 +11,8 @@ window.addEventListener('load', () => {
 
        if (response) {
         flightStatus.textContent = "Shuttle in flight."
+
+        shuttleBackground.style.backgroundColor = "blue";
        }
     });
 
