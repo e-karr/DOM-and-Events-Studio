@@ -24,6 +24,12 @@ window.addEventListener('load', () => {
 
        if (takeOffResponse) {
             updateShuttle("Shuttle in flight", "blue", 10000);
+
+            let topValue = parseInt(rocket.style.top);
+
+                topValue -= 10;
+
+                rocket.style.top = `${topValue}px`;
             
        }
     });
@@ -91,38 +97,32 @@ window.addEventListener('load', () => {
                 topValue -= 10;
 
                 rocket.style.top = `${topValue}px`;
+
+                let height = parseInt(spaceShuttleHeight.textContent);
+    
+                height += 10000;
+    
+                spaceShuttleHeight.textContent = height;
             }
-    
-            let height = parseInt(spaceShuttleHeight.textContent);
-    
-            height += 10000;
-    
-            spaceShuttleHeight.textContent = height;
         }
     });
 
     downButton.addEventListener('click', () => {
         if (flightStatus.textContent === "Shuttle in flight") {
-            if (rocket.style.bottom !== "") {
-                let downValue = rocket.style.bottom;
-                
-                downValue = parseInt(downValue);
-    
-                downValue -= 10;
-    
-                rocket.style.bottom = `${downValue}px`;
-    
-            } else {
-                rocket.style.bottom = '-10px';
-            }
 
-            console.log(`Bottom: ${rocket.style.bottom}, Top: ${rocket.style.top}`);
+            if (parseInt(rocket.style.top) < shuttleBackground.clientHeight - rocket.clientHeight) {
+                let topValue = parseInt(rocket.style.top);
+
+                topValue += 10;
+
+                rocket.style.top = `${topValue}px`;
+
+                let height = parseInt(spaceShuttleHeight.textContent);
     
-            let height = parseInt(spaceShuttleHeight.textContent);
+                height -= 10000;
     
-            height -= 10000;
-    
-            spaceShuttleHeight.textContent = height;
+                spaceShuttleHeight.textContent = height;
+            }
         }
     });
 
