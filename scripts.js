@@ -18,6 +18,7 @@ window.addEventListener('load', () => {
     const rocket = document.getElementById("rocket");
 
     rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
+    rocket.style.left = `${shuttleBackground.width}px`;
 
     takeoffButton.addEventListener('click', () => {
        let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
@@ -39,6 +40,9 @@ window.addEventListener('load', () => {
         alert("The shuttle is landing. Landing gear engaged.");
 
         updateShuttle("The shuttle has landed.", "green", 0);
+
+        returnRocketToOriginalPosition();
+
     });
 
     abortButton.addEventListener('click', () => {
@@ -46,6 +50,7 @@ window.addEventListener('load', () => {
 
         if (abortResponse) {
             updateShuttle("Mission aborted", "green", 0);
+            returnRocketToOriginalPosition();
         }
     });
 
@@ -68,6 +73,8 @@ window.addEventListener('load', () => {
             } else {
                 rocket.style.left = '10px';
             }
+
+            console.log(`Left: ${rocket.style.left}, Right: ${rocket.style.right}`);
         }
     });
 
@@ -85,6 +92,8 @@ window.addEventListener('load', () => {
             } else {
                 rocket.style.left = '-10px';
             }
+
+            console.log(`Left: ${rocket.style.left}, Right: ${rocket.style.right}`);
         }
     });
 
@@ -136,6 +145,13 @@ window.addEventListener('load', () => {
         flightStatus.textContent = status;
         shuttleBackground.style.backgroundColor = background;
         spaceShuttleHeight.textContent = height;
+    }
+
+    function returnRocketToOriginalPosition() {
+        rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
+        rocket.style.left = `${shuttleBackground.clientHeight - rocket.clientHeight * 4.2}px`;
+        rocket.style.bottom = "";
+        rocket.style.right = "";
     }
 
 });
