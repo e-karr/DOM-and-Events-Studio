@@ -17,11 +17,14 @@ window.addEventListener('load', () => {
 
     const rocket = document.getElementById("rocket");
 
+    rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
+
     takeoffButton.addEventListener('click', () => {
        let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
 
        if (takeOffResponse) {
             updateShuttle("Shuttle in flight", "blue", 10000);
+            
        }
     });
 
@@ -81,17 +84,13 @@ window.addEventListener('load', () => {
 
     upButton.addEventListener('click', () => {
         if (flightStatus.textContent === "Shuttle in flight") {
-            if (rocket.style.bottom !== "") {
-                let upValue = rocket.style.bottom;
-                
-                upValue = parseInt(upValue);
-    
-                upValue += 10;
-    
-                rocket.style.bottom = `${upValue}px`;
-    
-            } else {
-                rocket.style.bottom = '10px';
+
+            if (parseInt(rocket.style.top) > 0) {
+                let topValue = parseInt(rocket.style.top);
+
+                topValue -= 10;
+
+                rocket.style.top = `${topValue}px`;
             }
     
             let height = parseInt(spaceShuttleHeight.textContent);
@@ -116,6 +115,8 @@ window.addEventListener('load', () => {
             } else {
                 rocket.style.bottom = '-10px';
             }
+
+            console.log(`Bottom: ${rocket.style.bottom}, Top: ${rocket.style.top}`);
     
             let height = parseInt(spaceShuttleHeight.textContent);
     
