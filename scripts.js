@@ -41,44 +41,49 @@ window.addEventListener('load', () => {
     });
 
     rightButton.addEventListener('click', () => {
-        if (rocket.style.left !== "") {
-            let value = rocket.style.left;
-            
-            value = parseInt(value);
 
-            value += 10;
+        // let left = parseInt(rocket.style.left);
 
-            rocket.style.left = `${value}px`;
-
-        } else {
-            rocket.style.left = '10px';
-        }
+        // if (left < shuttleBackground.clientWidth) {
+            if (rocket.style.left !== "") {
+                let rightValue = rocket.style.left;
+                
+                rightValue = parseInt(rightValue);
+    
+                rightValue += 10;
+    
+                rocket.style.left = `${rightValue}px`;
+    
+            } else {
+                rocket.style.left = '10px';
+            }
+        // }
     });
 
     leftButton.addEventListener('click', () => {
         if (rocket.style.left !== "") {
-            let value = rocket.style.left;
+            let leftValue = rocket.style.left;
             
-            value = parseInt(value);
+            leftValue = parseInt(leftValue);
 
-            value -= 10;
+            leftValue -= 10;
 
-            rocket.style.left = `${value}px`;
+            rocket.style.left = `${leftValue}px`;
 
         } else {
-            rocket.style.right = '10px';
+            rocket.style.left = '-10px';
         }
     });
 
     upButton.addEventListener('click', () => {
         if (rocket.style.bottom !== "") {
-            let value = rocket.style.bottom;
+            let upValue = rocket.style.bottom;
             
-            value = parseInt(value);
+            upValue = parseInt(upValue);
 
-            value += 10;
+            upValue += 10;
 
-            rocket.style.bottom = `${value}px`;
+            rocket.style.bottom = `${upValue}px`;
 
         } else {
             rocket.style.bottom = '10px';
@@ -93,16 +98,16 @@ window.addEventListener('load', () => {
 
     downButton.addEventListener('click', () => {
         if (rocket.style.bottom !== "") {
-            let value = rocket.style.bottom;
+            let downValue = rocket.style.bottom;
             
-            value = parseInt(value);
+            downValue = parseInt(downValue);
 
-            value -= 10;
+            downValue -= 10;
 
-            rocket.style.bottom = `${value}px`;
+            rocket.style.bottom = `${downValue}px`;
 
         } else {
-            rocket.style.top = '10px';
+            rocket.style.bottom = '-10px';
         }
 
         let height = parseInt(spaceShuttleHeight.textContent);
