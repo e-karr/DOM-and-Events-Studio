@@ -22,78 +22,6 @@ window.addEventListener('load', () => {
 
        if (takeOffResponse) {
             updateShuttle("Shuttle in flight", "blue", 10000);
-
-            rightButton.addEventListener('click', () => {
-                if (rocket.style.left !== "") {
-                    let rightValue = rocket.style.left;
-                    
-                    rightValue = parseInt(rightValue);
-        
-                    rightValue += 10;
-        
-                    rocket.style.left = `${rightValue}px`;
-        
-                } else {
-                    rocket.style.left = '10px';
-                }
-            });
-
-            leftButton.addEventListener('click', () => {
-                if (rocket.style.left !== "") {
-                    let leftValue = rocket.style.left;
-                    
-                    leftValue = parseInt(leftValue);
-        
-                    leftValue -= 10;
-        
-                    rocket.style.left = `${leftValue}px`;
-        
-                } else {
-                    rocket.style.left = '-10px';
-                }
-            });
-
-            upButton.addEventListener('click', () => {
-                if (rocket.style.bottom !== "") {
-                    let upValue = rocket.style.bottom;
-                    
-                    upValue = parseInt(upValue);
-        
-                    upValue += 10;
-        
-                    rocket.style.bottom = `${upValue}px`;
-        
-                } else {
-                    rocket.style.bottom = '10px';
-                }
-        
-                let height = parseInt(spaceShuttleHeight.textContent);
-        
-                height += 10000;
-        
-                spaceShuttleHeight.textContent = height;
-            });
-
-            downButton.addEventListener('click', () => {
-                if (rocket.style.bottom !== "") {
-                    let downValue = rocket.style.bottom;
-                    
-                    downValue = parseInt(downValue);
-        
-                    downValue -= 10;
-        
-                    rocket.style.bottom = `${downValue}px`;
-        
-                } else {
-                    rocket.style.bottom = '-10px';
-                }
-        
-                let height = parseInt(spaceShuttleHeight.textContent);
-        
-                height -= 10000;
-        
-                spaceShuttleHeight.textContent = height;
-            });
        }
     });
 
@@ -112,7 +40,96 @@ window.addEventListener('load', () => {
         }
     });
 
+    leftButton.addEventListener('click', alertNotInFlight);
+    rightButton.addEventListener('click', alertNotInFlight);
+    upButton.addEventListener('click', alertNotInFlight);
+    downButton.addEventListener('click', alertNotInFlight);
+
+    rightButton.addEventListener('click', () => {
+        if (flightStatus.textContent === "Shuttle in flight") {
+            if (rocket.style.left !== "") {
+                let rightValue = rocket.style.left;
+                
+                rightValue = parseInt(rightValue);
     
+                rightValue += 10;
+    
+                rocket.style.left = `${rightValue}px`;
+    
+            } else {
+                rocket.style.left = '10px';
+            }
+        }
+    });
+
+    leftButton.addEventListener('click', () => {
+        if (flightStatus.textContent === "Shuttle in flight") {
+            if (rocket.style.left !== "") {
+                let leftValue = rocket.style.left;
+                
+                leftValue = parseInt(leftValue);
+    
+                leftValue -= 10;
+    
+                rocket.style.left = `${leftValue}px`;
+    
+            } else {
+                rocket.style.left = '-10px';
+            }
+        }
+    });
+
+    upButton.addEventListener('click', () => {
+        if (flightStatus.textContent === "Shuttle in flight") {
+            if (rocket.style.bottom !== "") {
+                let upValue = rocket.style.bottom;
+                
+                upValue = parseInt(upValue);
+    
+                upValue += 10;
+    
+                rocket.style.bottom = `${upValue}px`;
+    
+            } else {
+                rocket.style.bottom = '10px';
+            }
+    
+            let height = parseInt(spaceShuttleHeight.textContent);
+    
+            height += 10000;
+    
+            spaceShuttleHeight.textContent = height;
+        }
+    });
+
+    downButton.addEventListener('click', () => {
+        if (flightStatus.textContent === "Shuttle in flight") {
+            if (rocket.style.bottom !== "") {
+                let downValue = rocket.style.bottom;
+                
+                downValue = parseInt(downValue);
+    
+                downValue -= 10;
+    
+                rocket.style.bottom = `${downValue}px`;
+    
+            } else {
+                rocket.style.bottom = '-10px';
+            }
+    
+            let height = parseInt(spaceShuttleHeight.textContent);
+    
+            height -= 10000;
+    
+            spaceShuttleHeight.textContent = height;
+        }
+    });
+
+    function alertNotInFlight() {
+        if (flightStatus.textContent !== "Shuttle in flight") {
+            alert("Shuttle must be in flight to move.");
+        }
+    }
 
     function updateShuttle(status, background, height) {
         flightStatus.textContent = status;
