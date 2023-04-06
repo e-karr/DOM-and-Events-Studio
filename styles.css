@@ -21,8 +21,8 @@
 }
 
 #rocket {
-    position: absolute;
-    /* right: 0px; */
+    position: relative;
+    /* right: 100px; */
 }
 
 .center-block {

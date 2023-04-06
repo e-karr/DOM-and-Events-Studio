@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
     const takeoffButton = document.getElementById("takeoff");
     const landButton = document.getElementById("landing");
     const abortButton = document.getElementById("missionAbort");
+
     const upButton = document.getElementById("up");
     const downButton = document.getElementById("down");
     const rightButton = document.getElementById("right");
@@ -40,14 +41,96 @@ window.addEventListener('load', () => {
     });
 
     rightButton.addEventListener('click', () => {
-        rocket.style.right
+        if (rocket.style.left !== "") {
+            let value = rocket.style.left;
+            
+            value = parseInt(value);
+
+            value += 10;
+
+            rocket.style.left = `${value}px`;
+
+        } else {
+            rocket.style.left = '10px';
+        }
     });
+
+    leftButton.addEventListener('click', () => {
+        if (rocket.style.left !== "") {
+            let value = rocket.style.left;
+            
+            value = parseInt(value);
+
+            value -= 10;
+
+            rocket.style.left = `${value}px`;
+
+        } else {
+            rocket.style.right = '10px';
+        }
+    });
+
+    upButton.addEventListener('click', () => {
+        if (rocket.style.bottom !== "") {
+            let value = rocket.style.bottom;
+            
+            value = parseInt(value);
+
+            value += 10;
+
+            rocket.style.bottom = `${value}px`;
+
+        } else {
+            rocket.style.bottom = '10px';
+        }
+
+        let height = parseInt(spaceShuttleHeight.textContent);
+
+        height += 10000;
+
+        spaceShuttleHeight.textContent = height;
+    });
+
+    downButton.addEventListener('click', () => {
+        if (rocket.style.bottom !== "") {
+            let value = rocket.style.bottom;
+            
+            value = parseInt(value);
+
+            value -= 10;
+
+            rocket.style.bottom = `${value}px`;
+
+        } else {
+            rocket.style.top = '10px';
+        }
+
+        let height = parseInt(spaceShuttleHeight.textContent);
+
+        height -= 10000;
+
+        spaceShuttleHeight.textContent = height;
+    });
+
+    // function moveRocket(direction) {
+    //     if (rocket.style.direction !== "") {
+    //         let value = rocket.style.direction;
+            
+    //         value = parseInt(value);
+
+    //         value += 10;
+
+    //         rocket.style.direction = `${value}px`;
+
+    //     } else {
+    //         rocket.style.direction = '10px';
+    //     }
+    // }
 
     function updateShuttle(status, background, height) {
         flightStatus.textContent = status;
         shuttleBackground.style.backgroundColor = background;
         spaceShuttleHeight.textContent = height;
     }
-
 
 });
