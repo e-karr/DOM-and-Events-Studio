@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
     const rocket = document.getElementById("rocket");
 
     rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
-    rocket.style.left = `${shuttleBackground.width}px`;
+    rocket.style.right = `${(shuttleBackground.clientWidth/2) - (rocket.clientWidth/2)}px`;
 
     takeoffButton.addEventListener('click', () => {
        let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
@@ -61,39 +61,27 @@ window.addEventListener('load', () => {
 
     rightButton.addEventListener('click', () => {
         if (flightStatus.textContent === "Shuttle in flight") {
-            if (rocket.style.left !== "") {
-                let rightValue = rocket.style.left;
-                
-                rightValue = parseInt(rightValue);
+            if (parseInt(rocket.style.right) > -((shuttleBackground.clientWidth/2) - (rocket.clientWidth/2))) {
+                let rightValue = parseInt(rocket.style.right);
     
-                rightValue += 10;
+                rightValue -= 10;
     
-                rocket.style.left = `${rightValue}px`;
+                rocket.style.right = `${rightValue}px`;
     
-            } else {
-                rocket.style.left = '10px';
             }
-
-            console.log(`Left: ${rocket.style.left}, Right: ${rocket.style.right}`);
         }
     });
 
     leftButton.addEventListener('click', () => {
         if (flightStatus.textContent === "Shuttle in flight") {
-            if (rocket.style.left !== "") {
-                let leftValue = rocket.style.left;
-                
-                leftValue = parseInt(leftValue);
+            if (parseInt(rocket.style.right) < ((shuttleBackground.clientWidth/2) - (rocket.clientWidth/2))) {
+                let leftValue = parseInt(rocket.style.right);
     
-                leftValue -= 10;
+                leftValue += 10;
     
-                rocket.style.left = `${leftValue}px`;
+                rocket.style.right = `${leftValue}px`;
     
-            } else {
-                rocket.style.left = '-10px';
             }
-
-            console.log(`Left: ${rocket.style.left}, Right: ${rocket.style.right}`);
         }
     });
 
@@ -149,9 +137,7 @@ window.addEventListener('load', () => {
 
     function returnRocketToOriginalPosition() {
         rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
-        rocket.style.left = `${shuttleBackground.clientHeight - rocket.clientHeight * 4.2}px`;
-        rocket.style.bottom = "";
-        rocket.style.right = "";
+        rocket.style.right = `${(shuttleBackground.clientWidth/2) - (rocket.clientWidth/2)}px`;
     }
 
 });
