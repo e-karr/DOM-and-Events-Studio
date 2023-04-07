@@ -14,9 +14,9 @@ window.addEventListener('load', () => {
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
-
     const rocket = document.getElementById("rocket");
 
+    rocket.style.position = "relative";
     rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
     rocket.style.right = `${(shuttleBackground.clientWidth/2) - (rocket.clientWidth/2)}px`;
 
@@ -28,10 +28,9 @@ window.addEventListener('load', () => {
 
             let topValue = parseInt(rocket.style.top);
 
-                topValue -= 10;
+            topValue -= 10;
 
-                rocket.style.top = `${topValue}px`;
-            
+            rocket.style.top = `${topValue}px`;  
        }
     });
 
@@ -50,6 +49,7 @@ window.addEventListener('load', () => {
 
         if (abortResponse) {
             updateShuttle("Mission aborted", "green", 0);
+            
             returnRocketToOriginalPosition();
         }
     });
@@ -87,7 +87,6 @@ window.addEventListener('load', () => {
 
     upButton.addEventListener('click', () => {
         if (flightStatus.textContent === "Shuttle in flight") {
-
             if (parseInt(rocket.style.top) > 0) {
                 let topValue = parseInt(rocket.style.top);
 
@@ -106,7 +105,6 @@ window.addEventListener('load', () => {
 
     downButton.addEventListener('click', () => {
         if (flightStatus.textContent === "Shuttle in flight") {
-
             if (parseInt(rocket.style.top) < shuttleBackground.clientHeight - rocket.clientHeight) {
                 let topValue = parseInt(rocket.style.top);
 
