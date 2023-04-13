@@ -72,19 +72,24 @@ window.addEventListener('load', () => {
             let bottom = parseInt(rocket.style.bottom) || 0;
             let left = parseInt(rocket.style.left) || 0;
 
+            let height = parseInt(spaceShuttleHeight.textContent);
+
             let backgroundWidth = shuttleBackground.offsetWidth;
             let backgroundHeight = shuttleBackground.offsetHeight;
 
             if (direction === 'up') {
                 bottom += 10;
+                height += 10000;
             } else if (direction === "down") {
                 bottom -= 10;
+                height -= 10000;
             } else if (direction === "right") {
                 left += 10;
             } else {
                 left -= 10;
             }
 
+            spaceShuttleHeight.textContent = height;
             rocket.style.bottom = `${bottom}px`;
             rocket.style.left = `${left}px`;
         } else {
