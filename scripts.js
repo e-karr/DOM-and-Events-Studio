@@ -131,13 +131,32 @@ window.addEventListener('load', () => {
     }
 
     function returnRocketToOriginalPosition() {
-        rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
-        rocket.style.right = `${(shuttleBackground.clientWidth/2) - (rocket.clientWidth/2)}px`;
+        rocket.style.bottom = 0;
+        rocket.style.left = 0;
     }
 
     function moveRocket(direction) {
         if (flightStatus.textContent === "Shuttle in flight") {
-            
+            let bottom = parseInt(rocket.style.bottom) || 0;
+            let left = parseInt(rocket.style.left) || 0;
+
+            let backgroundWidth = shuttleBackground.offsetWidth;
+            let backgroundHeight = shuttleBackground.offsetHeight;
+
+            if (direction === 'up') {
+                bottom += 10;
+            } else if (direction === "down") {
+                bottom -= 10;
+            } else if (direction === "right") {
+                left += 10;
+            } else {
+                left -= 10;
+            }
+
+            rocket.style.bottom = `${bottom}px`;
+            rocket.style.left = `${left}px`;
+        } else {
+            alert("Shuttle must be in flight to move.");
         }
     }
 
