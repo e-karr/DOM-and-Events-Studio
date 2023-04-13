@@ -77,15 +77,15 @@ window.addEventListener('load', () => {
             let backgroundWidth = shuttleBackground.offsetWidth;
             let backgroundHeight = shuttleBackground.offsetHeight;
 
-            if (direction === 'up') {
+            if (direction === 'up' && bottom <= backgroundHeight - 75) {
                 bottom += 10;
                 height += 10000;
-            } else if (direction === "down") {
+            } else if (direction === "down" && bottom >= 10) {
                 bottom -= 10;
                 height -= 10000;
-            } else if (direction === "right") {
+            } else if (direction === "right" && left <= backgroundWidth - 75) {
                 left += 10;
-            } else {
+            } else if (direction === "left" && left >= 10) {
                 left -= 10;
             }
 
