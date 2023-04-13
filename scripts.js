@@ -16,9 +16,6 @@ window.addEventListener('load', () => {
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
     const rocket = document.getElementById("rocket");
 
-    rocket.style.position = "relative";
-    rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
-    rocket.style.right = `${(shuttleBackground.clientWidth/2) - (rocket.clientWidth/2)}px`;
 
     takeoffButton.addEventListener('click', () => {
        let takeOffResponse = confirm("Confirm that the shuttle is ready for takeoff.");
@@ -136,6 +133,12 @@ window.addEventListener('load', () => {
     function returnRocketToOriginalPosition() {
         rocket.style.top = `${shuttleBackground.clientHeight - rocket.clientHeight}px`;
         rocket.style.right = `${(shuttleBackground.clientWidth/2) - (rocket.clientWidth/2)}px`;
+    }
+
+    function moveRocket(direction) {
+        if (flightStatus.textContent === "Shuttle in flight") {
+            
+        }
     }
 
 });
